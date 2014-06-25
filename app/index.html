@@ -3,8 +3,56 @@
     <head>
         <link rel="stylesheet" type="text/css" href="styles/main.css">
         <script data-main="scripts/main" src="scripts/require.js"></script>
+
+		<script id="productListView" type="text/template">
+		<input type="button" onclick="location.href='#/new'" value="New"/>
+		 <hr />
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>First name</th>
+					<th>Last name</th>
+					<th>price</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% _.each(products, function(product) { %>
+					<tr>
+						<td><%= htmlEncode(product.get('name')) %></td>
+						<td><%= htmlEncode(product.get('description')) %></td>
+						<td><%= htmlEncode(product.get('price')) %></td>
+						<td><input type="button" onclick="location.href='#/edit/<%= product.id %>'" value="Edit"/></td>
+					</tr>	
+				<% }); %>
+			</tbody>
+		</table>
+		</script>
+
+		<script id="productEditView" type="text/template">
+		<form id="editForm">
+			<table>
+				<tr>
+					<td></td><td><input type="text" name="name" value="<%= product ? htmlEncode(product.get('name')) : '' %>" %></td>
+					<td></td><td><input type="text" name="description" value="<%= product ? htmlEncode(product.get('description')) : '' %>" %></td>
+					<td></td><td><input type="text" name="price" value="<%= product ? htmlEncode(product.get('price')) : '' %>" %></td>
+				</tr>
+			</table>
+			<hr />
+			<button type="submit"><%= product ? 'Update' : 'Create' %></button>
+			<% if(product) { %>
+				<input type="hidden" name="id" value="<%= product.id %>" />
+				<input type="button" id="deleteProduct" value="Delete" />
+			<% } %>	
+		</form>
+		</script>
+
     </head>
     <body>
-        <h1>MVNO POC</h1>
+	    <div class="container">
+	        <div class="inline"><h1>MVC </h1></div><div class="inline"><h3>Backbone via. Grunt + RequireJS + Bower</h3></div>
+	        <hr>
+			<div id="rootView1"></div>
+		</div>
     </body>
 </html>

@@ -68,7 +68,7 @@ module.exports = function (grunt) {
                     '.tmp/styles/{,*/}*.css',
                     '<%= config.app %>/images/{,*/}*',
                     '<%= config.app %>/modules/templates/*.hbs',
-                    '<%= config.app %>/templates/helpers/*.js'
+                    '<%= config.app %>/modules/templates/helpers/*.js'
                 ]
             }
         },
@@ -303,7 +303,7 @@ module.exports = function (grunt) {
                 files: {
                     '<%= config.dist %>/styles/main.css': [
                         '.tmp/styles/{,*/}*.css',
-                        '<%= config.app %>/styles/{,*/}*.css'
+                        // '<%= config.app %>/styles/{,*/}*.css'
                     ]
                 }
             }
@@ -407,7 +407,7 @@ module.exports = function (grunt) {
             },
             all: {
                 files: {
-                    '<%= config.app %>/templates/templates.js': ['<%= config.app %>/modules/templates/**/*']
+                    '<%= config.app %>/templates/templates.js': ['<%= config.app %>/modules/templates/**/*.hbs']
                 }
             }
         },
@@ -494,7 +494,6 @@ module.exports = function (grunt) {
         'autoprefixer',
         'concat',
         'cssmin',
-        'uglify',
         'copy:dist',
         'requirejs:dist', // AFTER copy:dist!
         'clean:postrequirejs',
