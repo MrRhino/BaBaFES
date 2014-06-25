@@ -1,0 +1,58 @@
+
+// bower:scss
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+// endbower
+
+/* Space out content a bit */
+body {
+    padding:15px;
+    color:#555;
+    background-color:snow;
+}
+
+h1{
+	font-size: 3em;
+}
+
+h3{
+	font-size: 2em;
+	font-weight: bolder;
+	color: black; 
+}
+
+.users {
+	width:100%;
+	border: solid 4px darkgrey;
+	border-spacing: 2px;
+	font-size: 2em;
+	th {
+		border-top: solid 2px darkgrey;
+		padding: 2px;
+		background-color: silver;
+	}
+	td {
+		border: solid 1px silver;
+		padding: 2px;
+	}
+}
+.customers {
+	width:100%;
+	border: solid 4px brown;
+	font-size: 2em;
+	th {
+		border-top: solid 2px brown;
+		padding: 2px;
+		background-color: #BB7777;
+	}
+	td {
+		border: solid 1px #BB7777;
+		padding: 2px;
+	}
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+}
